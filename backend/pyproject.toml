@@ -1,0 +1,59 @@
+[project]
+name = "sluice"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "alembic>=1.18.5",
+    "arq>=0.25.0",
+    "asyncpg>=0.31.0",
+    "cerebras-cloud-sdk>=1.67.0",
+    "fastapi>=0.139.0",
+    "fastembed>=0.9.0",
+    "google-genai>=2.29.0",
+    "groq>=1.5.0",
+    "httpx>=0.28.1",
+    "langfuse>=4.13.2",
+    "opentelemetry-api>=1.43.0",
+    "opentelemetry-exporter-otlp>=1.43.0",
+    "opentelemetry-sdk>=1.43.0",
+    "pgvector>=0.5.0",
+    "pydantic>=2.13.4",
+    "pydantic-settings>=2.14.2",
+    "redis>=8.0.1",
+    "sqlalchemy[asyncio]>=2.0.51",
+    "uvicorn[standard]>=0.51.0",
+]
+
+[dependency-groups]
+dev = [
+    "locust>=2.45.0",
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+    "pytest-cov>=7.1.0",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+# Lint scope is the application code (app/, chaos/, tests/). alembic/ holds
+# generated migrations and boilerplate env.py, which are not hand-maintained.
+extend-exclude = ["alembic"]
+
+[tool.ruff.lint.flake8-bugbear]
+# FastAPI's dependency-injection markers are call expressions used as argument
+# defaults by design; they are effectively immutable. This is FastAPI's
+# documented ruff configuration, not a blanket B008 disable.
+extend-immutable-calls = [
+    "fastapi.Depends",
+    "fastapi.Query",
+    "fastapi.Path",
+    "fastapi.Body",
+    "fastapi.Header",
+    "fastapi.Cookie",
+    "fastapi.Form",
+    "fastapi.File",
+]

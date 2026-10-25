@@ -1,0 +1,22 @@
+[
+  {"prompt": "What is the capital of France?", "expected_category": "simple", "reference_answer": "Paris"},
+  {"prompt": "What is 2 + 2?", "expected_category": "simple", "reference_answer": "4"},
+  {"prompt": "Convert 100 Fahrenheit to Celsius.", "expected_category": "simple", "reference_answer": "37.78 C"},
+  {"prompt": "Who wrote Romeo and Juliet?", "expected_category": "simple", "reference_answer": "William Shakespeare"},
+  {"prompt": "What year did World War II end?", "expected_category": "simple", "reference_answer": "1945"},
+  {"prompt": "Name the largest planet in the solar system.", "expected_category": "simple", "reference_answer": "Jupiter"},
+  {"prompt": "Spell the word 'necessary'.", "expected_category": "simple", "reference_answer": "necessary"},
+  {"prompt": "Explain how a hash map achieves average O(1) lookup, including collision handling.", "expected_category": "complex", "reference_answer": null},
+  {"prompt": "Compare optimistic vs pessimistic locking in databases and when to use each.", "expected_category": "complex", "reference_answer": null},
+  {"prompt": "Derive the time complexity of merge sort and explain the recurrence.", "expected_category": "complex", "reference_answer": "O(n log n)"},
+  {"prompt": "Explain the CAP theorem and give a real system example for each trade-off.", "expected_category": "complex", "reference_answer": null},
+  {"prompt": "Walk through how TLS establishes a session key during the handshake.", "expected_category": "complex", "reference_answer": null},
+  {"prompt": "Describe how garbage collection works in a generational collector.", "expected_category": "complex", "reference_answer": null},
+  {"prompt": "Explain the difference between process and thread, and the cost of a context switch.", "expected_category": "complex", "reference_answer": null},
+  {"prompt": "Summarize each of these five support tickets into one sentence apiece.", "expected_category": "bulk", "reference_answer": null},
+  {"prompt": "Classify the following 20 product reviews as positive, negative, or neutral.", "expected_category": "bulk", "reference_answer": null},
+  {"prompt": "Extract the invoice number and total from each of these 10 receipts.", "expected_category": "bulk", "reference_answer": null},
+  {"prompt": "Translate these 15 short UI strings from English to Spanish.", "expected_category": "bulk", "reference_answer": null},
+  {"prompt": "Generate SEO meta descriptions for these 12 blog post titles.", "expected_category": "bulk", "reference_answer": null},
+  {"prompt": "Tag each of these 30 log lines with a severity level.", "expected_category": "bulk", "reference_answer": null}
+]

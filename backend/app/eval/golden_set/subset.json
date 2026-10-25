@@ -1,0 +1,8 @@
+[
+  {"prompt": "What is the capital of France?", "expected_category": "simple", "reference_answer": "Paris"},
+  {"prompt": "What is 2 + 2?", "expected_category": "simple", "reference_answer": "4"},
+  {"prompt": "Explain the difference between a process and a thread in one paragraph.", "expected_category": "complex", "reference_answer": null},
+  {"prompt": "Explain the CAP theorem briefly.", "expected_category": "complex", "reference_answer": null},
+  {"prompt": "Classify these reviews as positive or negative: 'Loved it'; 'Terrible'.", "expected_category": "bulk", "reference_answer": null},
+  {"prompt": "Translate to Spanish: cat, dog, house.", "expected_category": "bulk", "reference_answer": null}
+]
