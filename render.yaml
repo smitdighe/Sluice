@@ -1,0 +1,43 @@
+# Render Blueprint — free tier only. Postgres lives on Neon (Render's free
+# Postgres expires after 30 days); set DATABASE_URL to Neon's *direct*
+# (non-pooled) connection string when prompted.
+services:
+  - type: web
+    name: sluice-api
+    runtime: docker
+    plan: free
+    # Closest Render region to India; create the Neon project in AWS
+    # ap-southeast-1 (Singapore) too so DB round-trips stay in-region.
+    region: singapore
+    rootDir: backend
+    dockerfilePath: ./Dockerfile
+    dockerCommand: ./start-web.sh
+    healthCheckPath: /v1/health
+    envVars:
+      - key: RUN_WORKERS_IN_PROCESS
+        value: "true"
+      - key: APP_ENV
+        value: production
+      - key: REDIS_URL
+        fromService:
+          type: keyvalue
+          name: sluice-redis
+          property: connectionString
+      - key: DATABASE_URL
+        sync: false
+      - key: CORS_ORIGINS
+        value: https://sluice-gateway.vercel.app
+      - key: GROQ_API_KEY
+        sync: false
+      - key: CEREBRAS_API_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+
+  - type: keyvalue
+    name: sluice-redis
+    plan: free
+    region: singapore
+    # Internal network only — the API is the sole client.
+    ipAllowList: []
+    maxmemoryPolicy: noeviction
